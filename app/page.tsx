@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import FantasyCard from "../components/FantasyCard";
 
 const CastleModel = dynamic(() => import("../components/CastleModel"), { ssr: false });
 
 export default function Home() {
-  const [hasEntered, setHasEntered] = useState(false);
-  const [isVideoEnded, setIsVideoEnded] = useState(false);
+  const [hasEntered, setHasEntered] = useState(true);
+  const [isVideoEnded, setIsVideoEnded] = useState(true);
 
   return (
     <main className="flex-1 flex items-center justify-center min-h-dvh w-full bg-black p-4 sm:p-8">
@@ -41,7 +42,7 @@ export default function Home() {
 
             {/* Portfolio Info Layer */}
             <div
-              className={`absolute inset-0 bg-black text-white p-6 md:p-12 flex flex-col transition-opacity duration-1000 overflow-y-auto overflow-x-hidden ${
+              className={`absolute inset-0 bg-gradient-to-b from-[#06080a] via-[#000000] to-[#040406] text-white p-6 md:p-12 flex flex-col transition-opacity duration-1000 overflow-y-auto overflow-x-hidden ${
                 isVideoEnded
                   ? "opacity-100 z-10"
                   : "opacity-0 pointer-events-none"
@@ -54,14 +55,14 @@ export default function Home() {
                   <CastleModel />
                 </div>
                 {/* Profile Info */}
-                <div className="flex-1">
-                  <h1 className="text-3xl font-bold uppercase tracking-wider mb-2">Dev Rizvy</h1>
-                  <h2 className="text-xl text-gray-400 font-light mb-4">Full Stack Developer</h2>
-                  <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-6 max-w-xl">
+                <div className="flex-1 mt-4 md:mt-10">
+                  <h1 style={{ fontFamily: "var(--font-cinzel)" }} className="text-4xl md:text-5xl tracking-[0.2em] mb-4 text-[#e0dfd5]">Dev Rizvy</h1>
+                  <h2 style={{ fontFamily: "var(--font-cinzel)" }} className="text-xl md:text-2xl text-[#8e9496] tracking-widest mb-6 uppercase">Full Stack Developer</h2>
+                  <p className="text-gray-300/80 text-sm md:text-base leading-relaxed mb-6 max-w-xl font-light">
                     I am a full stack developer with 1 year of experience building scalable applications.
                   </p>
                   <div>
-                    <h3 className="uppercase tracking-widest text-xs font-semibold text-gray-500 mb-2">Latest Experience</h3>
+                    <h3 style={{ fontFamily: "var(--font-cinzel)" }} className="tracking-[0.15em] text-sm text-[#5a6266] mb-3 uppercase">Latest Experience</h3>
                     <p className="text-gray-200 text-sm">
                       Web Developer at <span className="font-semibold text-white">Mangrove IT</span> <br/>
                       <span className="text-gray-500 text-xs">Oct 2024 — Oct 2025</span>
@@ -70,30 +71,45 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Sections under header */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 shrink-0">
-                 <div className="p-6 border border-white/10 bg-[#0a0a0a]">
-                    <h3 className="uppercase tracking-widest text-xs font-semibold text-gray-500 mb-4">Selected Projects</h3>
-                    <ul className="text-gray-300 text-sm space-y-3">
-                       <li><strong>01</strong> — Next.js Portfolio</li>
-                       <li><strong>02</strong> — E-commerce Platform</li>
-                       <li><strong>03</strong> — Real-time Chat App</li>
+              {/* Staggered Sections under header */}
+              <div className="flex flex-col gap-16 md:gap-24 mt-12 w-full relative max-w-4xl mx-auto shrink-0 pb-16">
+                 
+                 {/* Decorative background arc rings */}
+                 <div className="absolute top-[10%] left-[-20%] w-[600px] h-[600px] border border-white/5 rounded-full pointer-events-none mix-blend-screen" />
+                 <div className="absolute top-[30%] right-[-30%] w-[800px] h-[800px] border border-white/[0.03] rounded-full pointer-events-none mix-blend-screen" />
+                 <div className="absolute top-[50%] left-[-10%] w-[400px] h-[400px] border border-white/[0.02] rounded-full pointer-events-none mix-blend-screen" />
+
+                 <FantasyCard title="Selected Projects" className="self-start w-full md:w-[70%]">
+                    <ul className="space-y-4">
+                       <li className="flex items-start gap-4">
+                         <span style={{ fontFamily: "var(--font-cinzel)" }} className="text-white/40 mt-1">01</span>
+                         <span>Next.js Portfolio Platform with 3D elements</span>
+                       </li>
+                       <li className="flex items-start gap-4">
+                         <span style={{ fontFamily: "var(--font-cinzel)" }} className="text-white/40 mt-1">02</span>
+                         <span>High-performance E-commerce Architecture</span>
+                       </li>
+                       <li className="flex items-start gap-4">
+                         <span style={{ fontFamily: "var(--font-cinzel)" }} className="text-white/40 mt-1">03</span>
+                         <span>Real-time Concurrent Chat Application</span>
+                       </li>
                     </ul>
-                 </div>
-                 <div className="p-6 border border-white/10 bg-[#0a0a0a]">
-                    <h3 className="uppercase tracking-widest text-xs font-semibold text-gray-500 mb-4">Activities</h3>
-                    <ul className="text-gray-300 text-sm space-y-3">
-                       <li>— Open Source Contributor</li>
-                       <li>— Tech Blog Writer</li>
-                       <li>— Local Meetup Organizer</li>
+                 </FantasyCard>
+
+                 <FantasyCard title="Activities" className="self-end w-full md:w-[70%]">
+                    <ul className="space-y-4">
+                       <li className="flex items-center gap-3"><span className="text-white/20 text-xs">✦</span> Open Source Contributor</li>
+                       <li className="flex items-center gap-3"><span className="text-white/20 text-xs">✦</span> Technical Blog Writer</li>
+                       <li className="flex items-center gap-3"><span className="text-white/20 text-xs">✦</span> Local Meetup Organizer</li>
                     </ul>
-                 </div>
-                 <div className="p-6 border border-white/10 bg-[#0a0a0a]">
-                    <h3 className="uppercase tracking-widest text-xs font-semibold text-gray-500 mb-4">Achievements</h3>
-                    <p className="text-gray-300 text-sm leading-relaxed mb-2">
-                      Winner of the 2024 Annual Hackathon. Organized technical workshops impacting 100+ students.
+                 </FantasyCard>
+
+                 <FantasyCard title="Achievements" className="self-start w-full md:w-[70%]">
+                    <p className="leading-loose">
+                      Winner of the 2024 Annual Hackathon across 500+ participants. <br/><br/>
+                      Organized and executed technical workshops locally, impacting over 100+ upcoming student developers in the region.
                     </p>
-                 </div>
+                 </FantasyCard>
               </div>
 
               {/* Replay button */}
