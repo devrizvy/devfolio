@@ -14,10 +14,10 @@ export default function ProfileHeader() {
       </div>
       {/* Profile Info */}
       <div className="flex-1 mt-4 md:mt-10">
-        <div className="mb-4 -ml-8 scale-[0.8] origin-left">
+        <div className="mb-4 -ml-6 scale-[0.72] origin-left">
           <FantasyTitle title="Rizvy" subtitle="Web Developer" />
         </div>
-        <p className="text-gray-300 text-base md:text-[1.1rem] leading-[1.8] tracking-[0.03em] mb-6 max-w-xl font-light">
+        <p className="text-gray-300 text-base md:text-[1.1rem] leading-[1.6] tracking-[0.03em] mb-6 max-w-xl font-light">
           I spend my time building powerful, scalable apps that solve unique
           niche problems most people never talk about. I dive deep into every
           project and love pushing performance to the absolute edge through
@@ -37,7 +37,7 @@ export default function ProfileHeader() {
               October 2024 – October 2025
             </span>
           </p>
-          <p className="text-gray-300/90 text-[0.95rem] leading-[1.6] max-w-xl font-light italic">
+          <p className="text-gray-300/90 text-[0.95rem] leading-[1.6] max-w-xl font-light ">
             Designed and developed the organization’s main public website
             (mangrove.edu.bd), built robust CMS applications and SaaS
             platforms, and contributed significantly to the company’s core ERP

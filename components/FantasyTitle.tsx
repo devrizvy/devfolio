@@ -17,7 +17,7 @@ export default function FantasyTitle({ title, subtitle }: { title: string, subti
 
       <div className="flex flex-col gap-2">
         <h1 
-          className="text-4xl md:text-5xl lg:text-6xl tracking-[0.2em] text-[#e0dfd5] uppercase font-light drop-shadow-lg"
+          className="text-4xl md:text-5xl lg:text-4xl tracking-[0.2em] text-[#e0dfd5] uppercase font-light drop-shadow-lg"
           style={{ fontFamily: "var(--font-cinzel)" }}
         >
           {title}
