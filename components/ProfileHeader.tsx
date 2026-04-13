@@ -15,7 +15,7 @@ export default function ProfileHeader() {
       {/* Profile Info */}
       <div className="flex-1 mt-4 md:mt-10">
         <div className="mb-4 -ml-6 scale-[0.72] origin-left">
-          <FantasyTitle title="Rizvy" subtitle="Web Developer" />
+          <FantasyTitle title="Hi' I'm Rizvy" subtitle="Web Developer" />
         </div>
         <p className="text-gray-300 text-base md:text-[1.1rem] leading-[1.6] tracking-[0.03em] mb-6 max-w-xl font-light">
           I spend my time building powerful, scalable apps that solve unique
