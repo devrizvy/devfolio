@@ -1,8 +1,17 @@
+import dynamic from "next/dynamic";
 import FantasyTitle from "./FantasyTitle";
+
+const CastleModel = dynamic(() => import("./CastleModel"), {
+  ssr: false,
+});
 
 export default function ProfileHeader() {
   return (
     <div className="flex flex-col md:flex-row items-center gap-8 mb-16 shrink-0">
+      {/* 3D Model Container */}
+      <div className="w-[300px] h-[300px] shrink-0">
+        <CastleModel />
+      </div>
       {/* Profile Info */}
       <div className="flex-1 mt-4 md:mt-10">
         <div className="mb-4 -ml-6 scale-[0.72] origin-left">
