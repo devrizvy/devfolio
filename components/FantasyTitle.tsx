@@ -2,7 +2,7 @@ import React from "react";
 
 export default function FantasyTitle({ title, subtitle }: { title: string, subtitle?: string }) {
   return (
-    <div className="flex flex-col items-center justify-center text-center w-full my-8">
+    <div className="flex flex-col items-center justify-center text-center w-full my-4">
       {/* Top Divider */}
       <div className="relative flex items-center justify-center w-full max-w-[400px] mb-6 opacity-60">
         <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/40" />

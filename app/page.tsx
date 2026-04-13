@@ -10,7 +10,7 @@ import SwordScrollbar from "../components/SwordScrollbar";
 
 export default function Home() {
   const [hasEntered, setHasEntered] = useState(false);
-  const [isVideoEnded, setIsVideoEnded] = useState(true);
+  const [isVideoEnded, setIsVideoEnded] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
