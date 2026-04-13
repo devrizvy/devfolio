@@ -43,7 +43,7 @@ export default function CastleModel() {
   return (
     <div style={{ width: "100%", height: "100%", position: "relative" }}>
       <Canvas
-        camera={{ position: [0, 0.8, 1.8], fov: 40 }}
+        camera={{ position: [0, 0.7, 1.6], fov: 35 }}
         style={{ width: "100%", height: "100%" }}
         gl={{ antialias: true, alpha: true }}
       >
