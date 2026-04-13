@@ -37,6 +37,36 @@ export default function ProjectsTimeline() {
           React 19 + TypeScript, shadcn/ui, TanStack Query, Socket.IO, Express, MongoDB
         </div>
       </div>
+
+      {/* Project 2: AxoraNexus */}
+      <div className="flex flex-col gap-3 relative pl-6 md:pl-8 border-l border-white/20 hover:border-white/40 transition-colors duration-500 group">
+        {/* Decorative diamond on border */}
+        <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 border border-white/40 rotate-45 group-hover:bg-white/40 transition-colors duration-500" />
+
+        <h4
+          style={{ fontFamily: "var(--font-cinzel)" }}
+          className="text-2xl text-[#e0dfd5] tracking-widest uppercase relative inline-block w-fit"
+        >
+          AxoraNexus
+          {/* Underline flourish */}
+          <div className="absolute -bottom-1 left-0 w-1/2 h-[1px] bg-gradient-to-r from-white/40 to-transparent" />
+        </h4>
+
+        <p className="text-gray-300 text-[1.05rem] leading-[1.8] font-light mt-2 max-w-2xl">
+          A modern comprehensive frontend web application for advanced smartphone
+          inventory and sales management.
+        </p>
+
+        <div className="mt-2 text-sm text-gray-400 font-light">
+          <span
+            style={{ fontFamily: "var(--font-cinzel)" }}
+            className="text-[#5a6266] tracking-[0.15em] uppercase mr-3"
+          >
+            Tech Stack:
+          </span>
+          React 19 + TypeScript, Vite, Redux Toolkit, Radix UI, React Hook Form + Zod, Sonner, Express, MongoDB
+        </div>
+      </div>
     </div>
   );
 }

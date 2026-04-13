@@ -1,15 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import FantasyButton from "../components/FantasyButton";
 import ProfileHeader from "../components/ProfileHeader";
 import ProjectsTimeline from "../components/ProjectsTimeline";
 import Activities from "../components/Activities";
 import Achievements from "../components/Achievements";
+import SwordScrollbar from "../components/SwordScrollbar";
 
 export default function Home() {
   const [hasEntered, setHasEntered] = useState(false);
   const [isVideoEnded, setIsVideoEnded] = useState(true);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
     <main className="flex-1 flex items-center justify-center min-h-dvh w-full bg-[#030303] p-4 sm:p-12">
@@ -71,9 +73,13 @@ export default function Home() {
                 />
               </div>
 
+              {/* The Interactive SVG Sword Tracker */}
+              <SwordScrollbar targetRef={scrollRef} isVisible={isVideoEnded} />
+
               {/* Portfolio Info Layer — slides in from below */}
               <div
-                className="absolute inset-0 bg-gradient-to-b from-[#06080a] via-[#000000] to-[#040406] text-white p-6 md:p-12 flex flex-col overflow-y-auto overflow-x-hidden no-scrollbar"
+                ref={scrollRef}
+                className="absolute inset-0 bg-gradient-to-b from-[#06080a] via-[#000000] to-[#040406] text-white p-6 md:p-12 pl-8 pr-4 flex flex-col overflow-y-auto overflow-x-hidden no-scrollbar"
                 style={{
                   opacity: isVideoEnded ? 1 : 0,
                   transform: isVideoEnded ? "translateY(0)" : "translateY(30%)",
