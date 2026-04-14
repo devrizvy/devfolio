@@ -8,6 +8,8 @@ import Activities from "../components/Activities";
 import SwordScrollbar from "../components/SwordScrollbar";
 import VideoLoader from "../components/VideoLoader";
 import GithubActivity from "../components/GithubActivity";
+import { SiGithub, SiInstagram, SiGmail } from "react-icons/si";
+import { FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   const [hasEntered, setHasEntered] = useState(false);
@@ -59,10 +61,11 @@ export default function Home() {
                 style={{
                   opacity: isVideoEnded ? 0 : 1,
                   transform: isVideoEnded
-                    ? "translateY(-100%)"
-                    : "translateY(0)",
+                    ? "scale(1.2)"
+                    : "scale(1)",
+                  filter: isVideoEnded ? "brightness(2) blur(10px)" : "brightness(1) blur(0px)",
                   transition:
-                    "opacity 1.2s ease-in-out, transform 1.4s cubic-bezier(0.76, 0, 0.24, 1)",
+                    "opacity 2s ease-in, transform 2.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.5s ease-in",
                   pointerEvents: isVideoEnded ? "none" : "auto",
                 }}
               >
@@ -73,7 +76,7 @@ export default function Home() {
                   playsInline
                   onCanPlayThrough={() => setIsVideoReady(true)}
                   onEnded={() => setIsVideoEnded(true)}
-                  className={`w-full h-full object-cover transition-opacity duration-1000 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
+                  className={`w-full h-full object-cover transition-opacity duration-1000 ${isVideoReady ? "opacity-100" : "opacity-0"}`}
                 />
               </div>
 
@@ -86,9 +89,9 @@ export default function Home() {
                 className="absolute inset-0 bg-gradient-to-b from-[#06080a] via-[#000000] to-[#040406] text-white p-6 md:p-12 pl-8 pr-4 flex flex-col overflow-y-auto overflow-x-hidden no-scrollbar"
                 style={{
                   opacity: isVideoEnded ? 1 : 0,
-                  transform: isVideoEnded ? "translateY(0)" : "translateY(30%)",
+                  transform: isVideoEnded ? "translateY(0) scale(1)" : "translateY(20px) scale(0.98)",
                   transition:
-                    "opacity 1s ease-in-out 0.4s, transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s",
+                    "opacity 1.5s ease-in-out 0.8s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s",
                   pointerEvents: isVideoEnded ? "auto" : "none",
                   zIndex: isVideoEnded ? 10 : 0,
                 }}
@@ -111,7 +114,7 @@ export default function Home() {
                 </div>
 
                 {/* Replay button */}
-                <div className="flex justify-center mt-auto shrink-0 pt-8">
+                {/* <div className="flex justify-center mt-auto shrink-0 pt-8">
                   <FantasyButton
                     onClick={() => {
                       setIsVideoEnded(false);
@@ -120,7 +123,49 @@ export default function Home() {
                   >
                     Replay Experience
                   </FantasyButton>
-                </div>
+                </div> */}
+
+                {/* Footer */}
+                <footer className="mt-16 pb-8 pt-10 border-t border-white/5 flex flex-col items-center shrink-0 w-full">
+                  <div className="w-12 h-[1px] bg-[#b08d57]/30 mb-8" />
+
+                  {/* Social Links */}
+                  <div className="flex gap-8 mb-8">
+                    <a
+                      href="https://github.com/devrizvy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 hover:text-[#b08d57] transition-colors"
+                    >
+                      <SiGithub size={16} />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/devrizvy/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 hover:text-[#b08d57] transition-colors"
+                    >
+                      <FaLinkedin size={16} />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/rizvy.noct/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-500 hover:text-[#b08d57] transition-colors"
+                    >
+                      <SiInstagram size={16} />
+                    </a>
+                    <a
+                      href="mailto:rizvyhq1@gmail.com"
+                      className="text-gray-500 hover:text-[#b08d57] transition-colors"
+                    >
+                      <SiGmail size={16} />
+                    </a>
+                  </div>
+                  <p className="text-gray-500 text-[10px] mt-2 md:mt-3 tracking-widest font-light italic">
+                    © {new Date().getFullYear()} All Rights Reserved.
+                  </p>
+                </footer>
               </div>
             </>
           )}
