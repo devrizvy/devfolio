@@ -7,10 +7,12 @@ import ProjectsTimeline from "../components/ProjectsTimeline";
 import Activities from "../components/Activities";
 import Achievements from "../components/Achievements";
 import SwordScrollbar from "../components/SwordScrollbar";
+import VideoLoader from "../components/VideoLoader";
 
 export default function Home() {
   const [hasEntered, setHasEntered] = useState(false);
-  const [isVideoEnded, setIsVideoEnded] = useState(true);
+  const [isVideoEnded, setIsVideoEnded] = useState(false);
+  const [isVideoReady, setIsVideoReady] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   return (
@@ -64,12 +66,14 @@ export default function Home() {
                   pointerEvents: isVideoEnded ? "none" : "auto",
                 }}
               >
+                {!isVideoReady && <VideoLoader />}
                 <video
                   src="/rebirth.mp4"
                   autoPlay
                   playsInline
+                  onCanPlayThrough={() => setIsVideoReady(true)}
                   onEnded={() => setIsVideoEnded(true)}
-                  className="w-full h-full object-cover"
+                  className={`w-full h-full object-cover transition-opacity duration-1000 ${isVideoReady ? 'opacity-100' : 'opacity-0'}`}
                 />
               </div>
 

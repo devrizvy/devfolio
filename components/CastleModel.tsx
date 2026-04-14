@@ -1,8 +1,8 @@
 "use client";
 
-import { Suspense, useRef } from "react";
+import { Suspense, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
+import { useGLTF, OrbitControls, Environment, Html, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 
 function Castle() {
@@ -30,12 +30,39 @@ function Castle() {
 
 useGLTF.preload("/castle-compressed.glb");
 
-function LoadingFallback() {
+function FantasyLoader() {
+  const { progress } = useProgress();
+  const [localProgress, setLocalProgress] = useState(0);
+
+  useEffect(() => {
+    setLocalProgress(progress);
+  }, [progress]);
+
   return (
-    <mesh>
-      <boxGeometry args={[0.5, 0.5, 0.5]} />
-      <meshStandardMaterial color="#333" wireframe />
-    </mesh>
+    <Html center>
+      <div className="flex flex-col items-center justify-center w-[300px] h-[300px]">
+        {/* Magic Circle SVG */}
+        <div className="relative w-32 h-32 flex items-center justify-center">
+          <svg className="absolute w-full h-full animate-spin-slow opacity-20" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="5,5" />
+            <path d="M50 5 L95 50 L50 95 L5 50 Z" fill="none" stroke="white" strokeWidth="0.5" />
+            <circle cx="50" cy="50" r="30" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="2,2" />
+          </svg>
+          <span 
+            style={{ fontFamily: 'var(--font-cinzel)' }}
+            className="text-white text-xl font-bold tracking-widest drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]"
+          >
+            {Math.round(localProgress)}%
+          </span>
+        </div>
+        <p 
+          style={{ fontFamily: 'var(--font-cinzel)' }}
+          className="text-[#5a6266] text-[10px] tracking-[0.3em] uppercase mt-4 animate-pulse"
+        >
+          Summoning Citadel...
+        </p>
+      </div>
+    </Html>
   );
 }
 
@@ -50,7 +77,7 @@ export default function CastleModel() {
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <directionalLight position={[-3, 3, -3]} intensity={0.4} />
-        <Suspense fallback={<LoadingFallback />}>
+        <Suspense fallback={<FantasyLoader />}>
           <Castle />
           <Environment preset="city" />
         </Suspense>
