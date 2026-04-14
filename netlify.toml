@@ -1,12 +1,6 @@
 [build]
-  command = "npm install --legacy-peer-deps && npm run build"
-  publish = "out"
+  command = "npm run build"
+  publish = ".next"
 
 [build.environment]
-  NPM_FLAGS = "--legacy-peer-deps"
-
-# SPA fallback — serve index.html for any unmatched route
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  NODE_VERSION = "20"
