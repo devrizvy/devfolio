@@ -2,7 +2,8 @@ import FantasyCard from "./FantasyCard";
 import { 
   SiNextdotjs, SiReact, SiTailwindcss, SiRedux, SiTypescript, 
   SiJavascript, SiGraphql, SiExpress, SiMongodb, SiPostgresql, 
-  SiBun, SiJest, SiGit, SiDocker, SiGnubash, SiArchlinux 
+  SiBun, SiJest, SiGit, SiDocker, SiGnubash, SiArchlinux,
+  SiPrisma, SiSupabase, SiReactquery
 } from "react-icons/si";
 
 const TECH_STACK = [
@@ -22,6 +23,9 @@ const TECH_STACK = [
   { name: "Docker", Icon: SiDocker },
   { name: "Bash", Icon: SiGnubash },
   { name: "Arch Linux", Icon: SiArchlinux },
+  { name: "Prisma", Icon: SiPrisma },
+  { name: "Supabase", Icon: SiSupabase },
+  { name: "TanStack Query", Icon: SiReactquery },
 ];
 
 export default function Activities() {

@@ -1,6 +1,6 @@
 "use client";
 
-import GitHubCalendar from "react-github-calendar";
+import { GitHubCalendar } from "react-github-calendar";
 import FantasyCard from "./FantasyCard";
 
 export default function GithubActivity() {
@@ -21,16 +21,6 @@ export default function GithubActivity() {
               blockSize={11}
               blockMargin={4}
               loading={false}
-              renderBlock={(block, activity) => (
-                <div 
-                  {...block.props}
-                  className={`rounded-[1px] transition-all duration-700 hover:scale-150 hover:z-20 cursor-crosshair shadow-[0_0_10px_rgba(212,175,55,0.1)]`}
-                  style={{
-                    backgroundColor: block.props.style?.backgroundColor,
-                    boxShadow: activity.level > 2 ? `0 0 15px ${block.props.style?.backgroundColor}` : 'none'
-                  }}
-                />
-              )}
               labels={{
                 totalCount: "{{count}} incantations cast in the last cycle",
               }}
@@ -59,6 +49,24 @@ export default function GithubActivity() {
             letter-spacing: 0.2em !important;
             text-transform: uppercase !important;
             opacity: 0.6;
+          }
+          
+          /* Glow effects for high-level contributions */
+          .react-github-calendar__chart rect[data-level="3"] {
+            filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.4));
+          }
+          .react-github-calendar__chart rect[data-level="4"] {
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+          }
+          
+          /* Interactive hover glow */
+          .react-github-calendar__chart rect {
+            transition: all 0.3s ease;
+            rx: 1px;
+            ry: 1px;
+          }
+          .react-github-calendar__chart rect:hover {
+            filter: brightness(1.5) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)) !important;
           }
         `}</style>
       </div>

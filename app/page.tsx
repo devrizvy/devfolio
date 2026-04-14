@@ -5,7 +5,6 @@ import FantasyButton from "../components/FantasyButton";
 import ProfileHeader from "../components/ProfileHeader";
 import ProjectsTimeline from "../components/ProjectsTimeline";
 import Activities from "../components/Activities";
-import Achievements from "../components/Achievements";
 import SwordScrollbar from "../components/SwordScrollbar";
 import VideoLoader from "../components/VideoLoader";
 import GithubActivity from "../components/GithubActivity";
@@ -106,7 +105,6 @@ export default function Home() {
 
                   <ProjectsTimeline />
                   <Activities />
-                  <Achievements />
                   <div className="w-full mt-8">
                     <GithubActivity />
                   </div>
