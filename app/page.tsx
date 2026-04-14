@@ -86,7 +86,7 @@ export default function Home() {
               {/* Portfolio Info Layer — slides in from below */}
               <div
                 ref={scrollRef}
-                className="absolute inset-0 bg-gradient-to-b from-[#06080a] via-[#000000] to-[#040406] text-white p-6 md:p-12 pl-8 pr-4 flex flex-col overflow-y-auto overflow-x-hidden no-scrollbar"
+                className="absolute inset-0 bg-gradient-to-b from-[#06080a] via-[#000000] to-[#040406] text-white p-6 md:p-12 pl-8 pr-4 flex flex-col overflow-y-auto overflow-x-hidden no-scrollbar touch-pan-y overscroll-contain"
                 style={{
                   opacity: isVideoEnded ? 1 : 0,
                   transform: isVideoEnded ? "translateY(0) scale(1)" : "translateY(20px) scale(0.98)",
@@ -94,6 +94,7 @@ export default function Home() {
                     "opacity 1.5s ease-in-out 0.8s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s",
                   pointerEvents: isVideoEnded ? "auto" : "none",
                   zIndex: isVideoEnded ? 10 : 0,
+                  WebkitOverflowScrolling: "touch",
                 }}
               >
                 {/* Header profile section */}

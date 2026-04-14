@@ -7,23 +7,23 @@ const CastleModel = dynamic(() => import("./CastleModel"), {
 
 export default function ProfileHeader() {
   return (
-    <div className="flex flex-col md:flex-row items-center gap-8 mb-10 shrink-0">
+    <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 mb-10 shrink-0">
       {/* 3D Model Container */}
-      <div className="w-full md:w-[300px] h-[220px] md:h-[300px] shrink-0 -mt-6 md:mt-0 flex justify-center -ml-4 md:-ml-0">
+      <div className="w-full md:w-[300px] h-[250px] md:h-[300px] shrink-0 mt-8 md:mt-0 flex justify-center -ml-4 md:-ml-0">
         <CastleModel />
       </div>
       {/* Profile Info */}
-      <div className="flex-1 mt-0 md:mt-10">
-        <div className="mb-4 -ml-4 md:-ml-6 scale-[0.6] sm:scale-[0.65] md:scale-[0.72] origin-left">
+      <div className="flex-1 mt-0 md:mt-10 flex flex-col items-center md:items-start text-center md:text-left">
+        <div className="mb-4 md:-ml-6 scale-[0.65] sm:scale-[0.7] md:scale-[0.72] origin-center md:origin-left">
           <FantasyTitle title="Hi I'm Rizvy" subtitle="Web Developer" />
         </div>
-        <p className="text-gray-300 text-base md:text-[1.1rem] leading-[1.6] tracking-[0.03em] mb-6 max-w-xl font-light">
+        <p className="text-gray-300 text-base md:text-[1.1rem] leading-[1.6] tracking-[0.03em] mb-8 max-w-xl font-light">
           I spend my time building powerful, scalable apps that solve unique
           niche problems most people never talk about. I dive deep into every
           project and love pushing performance to the absolute edge through
           smart architecture and relentless optimization.
         </p>
-        <div>
+        <div className="w-full">
           <h3
             style={{ fontFamily: "var(--font-cinzel)" }}
             className="tracking-[0.15em] text-sm text-[#5a6266] mb-4 uppercase"
@@ -32,7 +32,7 @@ export default function ProfileHeader() {
           </h3>
           
           <div className="space-y-6">
-            <div className="relative pl-4 border-l border-white/10">
+            <div className="relative pl-4 border-l border-white/10 text-left">
               <p className="text-gray-200 text-sm mb-1 font-medium">
                 Web Development Intern at{" "}
                 <span className="font-semibold text-white">City IT Park</span>
@@ -45,7 +45,7 @@ export default function ProfileHeader() {
               </p>
             </div>
 
-            <div className="relative pl-4 border-l border-white/10">
+            <div className="relative pl-4 border-l border-white/10 text-left">
               <p className="text-gray-200 text-sm mb-1 font-medium">
                 Web Developer at{" "}
                 <span className="font-semibold text-white">Mangrove IT</span>
