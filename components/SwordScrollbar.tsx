@@ -39,7 +39,7 @@ export default function SwordScrollbar({
 
   return (
     <div 
-      className={`absolute right-4 md:right-[22px] top-[15%] bottom-[15%] w-8 pointer-events-none z-50 transition-all duration-1000 ${
+      className={`absolute right-0 md:right-0 top-[15%] bottom-[15%] w-8 pointer-events-none z-50 transition-all duration-1000 ${
         isVisible ? "opacity-100 translate-x-0 delay-700" : "opacity-0 translate-x-10"
       }`}
     >

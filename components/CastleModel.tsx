@@ -68,7 +68,7 @@ function FantasyLoader() {
 
 export default function CastleModel() {
   return (
-    <div style={{ width: "100%", height: "100%", position: "relative" }}>
+    <div style={{ width: "100%", height: "100%", position: "relative" }} className="pointer-events-none md:pointer-events-auto">
       <Canvas
         camera={{ position: [0, 0.7, 1.6], fov: 35 }}
         style={{ width: "100%", height: "100%" }}

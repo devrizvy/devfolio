@@ -59,6 +59,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 z-20"
                 style={{
+                  display: isVideoEnded ? "none" : "block",
                   opacity: isVideoEnded ? 0 : 1,
                   transform: isVideoEnded
                     ? "scale(1.2)"
@@ -86,19 +87,20 @@ export default function Home() {
               {/* Portfolio Info Layer — slides in from below */}
               <div
                 ref={scrollRef}
-                className="absolute inset-0 bg-gradient-to-b from-[#06080a] via-[#000000] to-[#040406] text-white p-6 md:p-12 pl-8 pr-4 flex flex-col overflow-y-auto overflow-x-hidden no-scrollbar touch-pan-y overscroll-contain"
+                className="absolute inset-0 bg-[#030303] text-white p-6 md:p-12 pl-8 pr-4 flex flex-col overflow-y-auto overflow-x-hidden no-scrollbar touch-pan-y overscroll-contain"
                 style={{
                   opacity: isVideoEnded ? 1 : 0,
-                  transform: isVideoEnded ? "translateY(0) scale(1)" : "translateY(20px) scale(0.98)",
-                  transition:
-                    "opacity 1.5s ease-in-out 0.8s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s",
+                  visibility: isVideoEnded ? "visible" : "hidden",
+                  transform: isVideoEnded ? "translateY(0)" : "translateY(20px)",
+                  transition: "opacity 1.5s ease-in-out 0.8s, transform 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.8s",
                   pointerEvents: isVideoEnded ? "auto" : "none",
-                  zIndex: isVideoEnded ? 10 : 0,
+                  zIndex: 50,
                   WebkitOverflowScrolling: "touch",
                 }}
               >
-                {/* Header profile section */}
-                <ProfileHeader />
+                {/* iOS Scroll Force Wrapper */}
+                <div className="min-h-[101%] flex flex-col w-full relative">
+                  <ProfileHeader />
 
                 {/* Staggered Sections under header */}
                 <div className="flex flex-col gap-16 md:gap-24 mt-12 w-full relative max-w-4xl mx-auto shrink-0 pb-16">
@@ -168,6 +170,7 @@ export default function Home() {
                   </p>
                 </footer>
               </div>
+            </div>
             </>
           )}
         </div>
