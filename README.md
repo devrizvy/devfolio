@@ -1,78 +1,63 @@
-# 🏰 Rizvy's Dark Fantasy Portfolio
 
-> A high-performance developer portfolio built with a dark fantasy aesthetic — cinematic, immersive, and unapologetically bold.
+
+# devrizvy
+
+dark fantasy portfolio built with next.js. cinematic, interactive, and performance-focused.
 
 ![Portfolio Screenshot](./public/screenshort1.png)
 
----
+## features
 
-## ✨ Overview
+portfolio — immersive project showcase with custom UI
+3d scene — animated castle using react three fiber
+github activity — contribution graph styled as lore
+custom ui — sword scrollbar, cinematic loader, dark theme
+performance — optimized assets and smooth rendering
 
-This is my personal developer portfolio, designed to stand out from the crowd. Instead of the usual minimal white-card layout, this portfolio leans into a **dark fantasy world** — complete with a 3D animated castle, custom sword scrollbar, cinematic loading sequences, and a GitHub contribution chronicle styled like ancient lore.
-
-Built to showcase not just projects, but personality.
-
----
-
-## 🛠 Tech Stack
-
-| Layer | Tech |
-|---|---|
-| **Framework** | Next.js 16 (App Router) |
-| **Language** | TypeScript |
-| **Styling** | Tailwind CSS v4 |
-| **3D Rendering** | React Three Fiber + Drei + `@google/model-viewer` |
-| **Animations** | Custom CSS keyframes + JS-driven effects |
-| **Data** | GitHub Contributions API via `react-github-calendar` |
-
----
-
-## 🚀 Running Locally
+## quick start
 
 ```bash
-# Install dependencies
+# install
 npm install
 
-# Start dev server
+# development
 npm run dev
+
+# build
+npm run build
+
+# start
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+## stack
+
+next.js (app router)
+typescript
+tailwind css
+react three fiber + drei
+@google/model-viewer
+github api (react-github-calendar)
+
+## deployment
+
+netlify (auto deploy via github push)
+
+## structure
+
+app — routes and layouts
+components — reusable ui + 3d + effects
+public — static assets (models, images)
+next.config.ts — config
+
+## contact
+
+github — [https://github.com/devrizvy](https://github.com/devrizvy)
+
+## license
+
+personal portfolio project
 
 ---
 
-## 🌐 Deployment
-
-This site is configured for deployment on **Netlify** via GitHub. Every push to `master` triggers an automatic build and deploy.
-
-```
-Build command: next build
-Publish directory: .next
-```
-
----
-
-## 📁 Project Structure
-
-```
-devfolio/
-├── app/              # Next.js App Router pages & layout
-├── components/       # Reusable UI components
-│   ├── CastleModel.tsx       # 3D castle via model-viewer
-│   ├── GithubActivity.tsx    # GitHub chronicle tracker
-│   ├── SwordScrollbar.tsx    # Custom animated scrollbar
-│   ├── VideoLoader.tsx       # Cinematic intro loader
-│   └── ...
-├── public/           # Static assets (3D models, images)
-└── next.config.ts    # Next.js configuration
-```
-
----
-
-## 📬 Contact
-
-- **GitHub**: [@devrizvy](https://github.com/devrizvy)
-
----
-
-*Built with obsession, not templates.*
+built with intent, not templates.
