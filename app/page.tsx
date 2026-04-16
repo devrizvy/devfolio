@@ -28,7 +28,7 @@ export default function Home() {
     <main className="flex-1 flex items-center justify-center min-h-dvh w-full bg-[#030303] p-4 sm:p-12 relative overflow-hidden">
       {/* Global Loading Overlay */}
       <div 
-        className={`fixed inset-0 z-[100] transition-opacity duration-1000 ease-in-out pointer-events-none ${
+        className={`fixed inset-0 z-[100] transition-opacity duration-1000 ease-in-out pointer-events-none  ${
           showContent ? "opacity-0 invisible" : "opacity-100 visible"
         }`}
       >
@@ -41,6 +41,7 @@ export default function Home() {
           showContent ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
         }`}
       >
+        
         {/* ── Corner Decorations on Main Canvas ── */}
         <div className="absolute -top-3 -left-3 w-10 h-10 border-t border-l border-white/40 rounded-tl-xl z-30 pointer-events-none" />
         <div className="absolute -top-3 -right-3 w-10 h-10 border-t border-r border-white/40 rounded-tr-xl z-30 pointer-events-none" />
@@ -55,6 +56,7 @@ export default function Home() {
               "polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0 calc(100% - 20px), 0 20px)",
           }}
         >
+          
           {/* Thin inner border frame */}
           <div
             className="absolute inset-[1px] border border-white/10 z-30 pointer-events-none"

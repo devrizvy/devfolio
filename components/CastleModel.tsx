@@ -2,7 +2,7 @@
 
 import { Suspense, useRef, useState, useEffect, Component, ReactNode } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, OrbitControls, Html, useProgress } from "@react-three/drei";
+import { useGLTF, OrbitControls, Environment, Html, useProgress } from "@react-three/drei";
 import * as THREE from "three";
 
 // A small component that reports when it has mounted (meaning Suspense is finished)
@@ -124,19 +124,14 @@ export default function CastleModel({ onLoaded }: { onLoaded?: () => void }) {
           style={{ width: "100%", height: "100%" }}
           gl={{ antialias: true, alpha: true }}
         >
-          {/* Fully self-contained lighting — no external CDN dependency */}
-          <ambientLight intensity={0.5} />
-          {/* Key light — warm from front-right */}
-          <directionalLight position={[4, 6, 4]} intensity={1.4} color="#fff8f0" />
-          {/* Fill light — cool blue from left */}
-          <directionalLight position={[-4, 2, -2]} intensity={0.5} color="#a0b8d0" />
-          {/* Rim light — gold from behind */}
-          <directionalLight position={[0, -2, -6]} intensity={0.6} color="#b08d57" />
-          {/* Soft ground bounce */}
-          <hemisphereLight args={["#1a1a2e", "#0d0d0d", 0.4]} />
-
+          {/* Restored original lighting setup for the "old color" look */}
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[5, 5, 5]} intensity={1} />
+          <directionalLight position={[-3, 3, -3]} intensity={0.4} />
+          
           <Suspense fallback={<FantasyLoader />}>
             <Castle />
+            <Environment preset="city" />
             {onLoaded && <ReportReady onReady={onLoaded} />}
           </Suspense>
 
