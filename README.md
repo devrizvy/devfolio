@@ -50,10 +50,6 @@ components — reusable ui + 3d + effects
 public — static assets (models, images)
 next.config.ts — config
 
-## contact
-
-github — [https://github.com/devrizvy](https://github.com/devrizvy)
-
 ## license
 
 personal portfolio project
