@@ -35,13 +35,11 @@ export default function SwordScrollbar({
       if (target) target.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [targetRef, isVisible]);
+  }, [targetRef]);
 
   return (
     <div 
-      className={`absolute right-0 md:right-0 top-[15%] bottom-[15%] w-8 pointer-events-none z-50 transition-all duration-1000 ${
-        isVisible ? "opacity-100 translate-x-0 delay-700" : "opacity-0 translate-x-10"
-      }`}
+      className="absolute right-0 md:right-0 top-[15%] bottom-[15%] w-8 pointer-events-none z-[60]"
     >
       {/* The glowing track crevice */}
       <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-white/10 to-transparent shadow-[0_0_12px_rgba(255,255,255,0.15)] rounded-full" />
