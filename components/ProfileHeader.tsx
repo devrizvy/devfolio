@@ -5,12 +5,12 @@ const CastleModel = dynamic(() => import("./CastleModel"), {
   ssr: false,
 });
 
-export default function ProfileHeader() {
+export default function ProfileHeader({ onModelLoad }: { onModelLoad?: () => void }) {
   return (
     <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 mb-10 shrink-0">
       {/* 3D Model Container */}
       <div className="w-full md:w-[300px] h-[250px] md:h-[300px] shrink-0 mt-8 md:mt-0 flex justify-center -ml-4 md:-ml-0">
-        <CastleModel />
+        <CastleModel onLoaded={onModelLoad} />
       </div>
       {/* Profile Info */}
       <div className="flex-1 mt-0 md:mt-10 flex flex-col items-center md:items-start text-center md:text-left">

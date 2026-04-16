@@ -1,21 +1,46 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import ProfileHeader from "../components/ProfileHeader";
 import ProjectsTimeline from "../components/ProjectsTimeline";
 import Activities from "../components/Activities";
 import SwordScrollbar from "../components/SwordScrollbar";
 import GithubActivity from "../components/GithubActivity";
+import GlobalLoader from "../components/GlobalLoader";
 import { SiGithub, SiInstagram, SiGmail } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isSiteReady, setIsSiteReady] = useState(false);
+  const [showContent, setShowContent] = useState(false);
+
+  // When model is ready, trigger the fade transition
+  useEffect(() => {
+    if (isSiteReady) {
+      // Small delay before following through with content fade-in
+      const timer = setTimeout(() => setShowContent(true), 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isSiteReady]);
 
   return (
-    <main className="flex-1 flex items-center justify-center min-h-dvh w-full bg-[#030303] p-4 sm:p-12">
-      {/* Outer wrapper to hold decorations outside the clipped bounds */}
-      <div className="relative w-full max-w-[800px] h-[90dvh] max-h-[1400px]">
+    <main className="flex-1 flex items-center justify-center min-h-dvh w-full bg-[#030303] p-4 sm:p-12 relative overflow-hidden">
+      {/* Global Loading Overlay */}
+      <div 
+        className={`fixed inset-0 z-[100] transition-opacity duration-1000 ease-in-out pointer-events-none ${
+          showContent ? "opacity-0 invisible" : "opacity-100 visible"
+        }`}
+      >
+        <GlobalLoader />
+      </div>
+
+      {/* Main Portfolio Content */}
+      <div 
+        className={`relative w-full max-w-[800px] h-[90dvh] max-h-[1400px] transition-all duration-1000 ease-out transform ${
+          showContent ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
+        }`}
+      >
         {/* ── Corner Decorations on Main Canvas ── */}
         <div className="absolute -top-3 -left-3 w-10 h-10 border-t border-l border-white/40 rounded-tl-xl z-30 pointer-events-none" />
         <div className="absolute -top-3 -right-3 w-10 h-10 border-t border-r border-white/40 rounded-tr-xl z-30 pointer-events-none" />
@@ -50,7 +75,7 @@ export default function Home() {
           >
             {/* iOS Scroll Force Wrapper */}
             <div className="min-h-[101%] flex flex-col w-full relative">
-              <ProfileHeader />
+              <ProfileHeader onModelLoad={() => setIsSiteReady(true)} />
 
               {/* Staggered Sections under header */}
               <div className="flex flex-col gap-16 md:gap-24 mt-12 w-full relative max-w-4xl mx-auto shrink-0 pb-16">
@@ -111,7 +136,7 @@ export default function Home() {
           </div>
 
           {/* The Interactive SVG Sword Tracker — rendered above scroll layer */}
-          <SwordScrollbar targetRef={scrollRef} isVisible={true} />
+          <SwordScrollbar targetRef={scrollRef} isVisible={showContent} />
         </div>
       </div>
     </main>
